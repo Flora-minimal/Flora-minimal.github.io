@@ -1,12 +1,170 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Solara</title>
+  <title>Solara — sunsets, soft dance & science decoded</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=Outfit:wght@300;400;500&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --cream: #f6e6d2;
+      --gold: #e8b86d;
+      --blush: #e9896a;
+      --night: #100816;
+      --muted: rgba(246, 230, 210, .72);
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html, body { min-height: 100%; }
+    body {
+      font-family: Outfit, system-ui, sans-serif;
+      color: var(--cream);
+      background: var(--night);
+    }
+    .sky {
+      min-height: 100vh;
+      padding: 28px 22px 64px;
+      background:
+        radial-gradient(ellipse at 50% 118%, #ff8a4a 0%, transparent 42%),
+        radial-gradient(ellipse at 18% 8%, #6b2a58 0%, transparent 36%),
+        linear-gradient(180deg, #1a0d22 0%, #4a1d3a 38%, #c45b3c 72%, #f0b27a 92%, #f7d7a6 100%);
+      position: relative;
+      overflow: hidden;
+    }
+    .sky::after {
+      content: "";
+      position: absolute;
+      inset: auto 0 0;
+      height: 28vh;
+      background: linear-gradient(180deg, transparent, var(--night));
+      pointer-events: none;
+    }
+    .sun {
+      width: min(42vw, 180px);
+      aspect-ratio: 1;
+      margin: 8vh auto 0;
+      border-radius: 50%;
+      background: radial-gradient(circle at 40% 40%, #fff1c9, #ffb060 45%, #ff7a3c 70%, transparent 72%);
+      box-shadow: 0 0 80px 24px rgba(255, 140, 70, .35);
+      animation: pulse 6s ease-in-out infinite;
+    }
+    @keyframes pulse {
+      50% { transform: scale(1.04); box-shadow: 0 0 110px 32px rgba(255, 140, 70, .42); }
+    }
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      letter-spacing: .22em;
+      text-transform: uppercase;
+      font-size: .68rem;
+      color: var(--muted);
+    }
+    nav b { color: var(--cream); font-weight: 500; }
+    .hero { text-align: center; margin-top: 7vh; position: relative; z-index: 1; }
+    .kicker {
+      letter-spacing: .34em;
+      text-transform: uppercase;
+      font-size: .7rem;
+      color: var(--gold);
+      margin-bottom: 14px;
+    }
+    h1 {
+      font-family: "Cormorant Garamond", Georgia, serif;
+      font-size: clamp(4.2rem, 18vw, 7rem);
+      font-weight: 400;
+      line-height: .85;
+    }
+    h1 em { font-style: italic; color: #ffe0b8; }
+    .hero p {
+      max-width: 22rem;
+      margin: 18px auto 0;
+      font-weight: 300;
+      font-size: 1.05rem;
+      color: rgba(255, 236, 214, .88);
+    }
+    .chips {
+      display: flex;
+      justify-content: center;
+      gap: 8px;
+      flex-wrap: wrap;
+      margin-top: 26px;
+    }
+    .chips span {
+      border: 1px solid rgba(255,255,255,.22);
+      background: rgba(16,8,22,.18);
+      padding: 8px 12px;
+      border-radius: 999px;
+      font-size: .75rem;
+    }
+    section.panel {
+      margin: -48px 16px 0;
+      position: relative;
+      z-index: 2;
+      background: rgba(18, 10, 24, .86);
+      border: 1px solid rgba(255,255,255,.08);
+      border-radius: 24px;
+      padding: 28px 22px 32px;
+    }
+    section.panel h2 {
+      font-family: "Cormorant Garamond", Georgia, serif;
+      font-size: 2rem;
+      font-weight: 400;
+      margin-bottom: 10px;
+    }
+    section.panel p { color: var(--muted); font-weight: 300; }
+    .notes { display: grid; gap: 12px; margin-top: 22px; }
+    .note {
+      padding: 16px;
+      border-radius: 16px;
+      background: rgba(255,255,255,.03);
+      border: 1px solid rgba(255,255,255,.07);
+    }
+    .note small {
+      display: block;
+      color: var(--blush);
+      letter-spacing: .16em;
+      text-transform: uppercase;
+      font-size: .68rem;
+      margin-bottom: 6px;
+    }
+    footer {
+      text-align: center;
+      padding: 36px 16px 48px;
+      color: rgba(246,230,210,.45);
+      font-size: .82rem;
+    }
+    footer a { color: var(--cream); text-decoration: none; }
+  </style>
 </head>
 <body>
-  <h1>Solara</h1>
-  <p>Sunsets, soft dance & science decoded</p>
+  <div class="sky">
+    <nav>
+      <b>Solara</b>
+      <span>2026</span>
+    </nav>
+    <div class="sun"></div>
+    <div class="hero">
+      <p class="kicker">A quiet observatory</p>
+      <h1>So<em>lara</em></h1>
+      <p>Sunsets, soft dance &amp; science decoded — light, motion, and the hour the sky changes its mind.</p>
+      <div class="chips">
+        <span>Golden hour</span>
+        <span>Soft dance</span>
+        <span>Sky physics</span>
+      </div>
+    </div>
+  </div>
+  <section class="panel">
+    <h2>Why the sky burns gold</h2>
+    <p>When the sun sits low, light travels a longer path through air. Short blue waves scatter away. Longer reds and ambers remain. That filter is why evenings feel warmer than noon.</p>
+    <div class="notes">
+      <div class="note"><small>Light</small>Sunset color is distance plus dust — Rayleigh scattering, then a little haze.</div>
+      <div class="note"><small>Motion</small>Soft dance is the body answering that same slow gradient: hold, turn, release.</div>
+      <div class="note"><small>Note</small>This page is a first window. Images and voice notes can live here next.</div>
+    </div>
+  </section>
+  <footer>© 2026 Solara · <a href="https://x.com/Solivineh">@Solivineh</a></footer>
 </body>
 </html>
